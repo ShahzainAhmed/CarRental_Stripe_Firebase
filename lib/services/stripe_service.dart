@@ -1,3 +1,4 @@
+import 'package:car_rental_modern/models/large_tiles_model.dart';
 import 'package:car_rental_modern/resources/app_constants.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -9,9 +10,10 @@ class StripeService {
   // we can use this 'instance' to interact with our stripe service
   static final StripeService instance = StripeService._();
 
-  Future<void> makePayment() async {
+  Future<void> makePayment(LargeTilesModel largeTilesModel) async {
     try {
-      String? paymentIntentClientSecret = await _createPaymentIntent(10, "usd");
+      String? paymentIntentClientSecret =
+          await _createPaymentIntent(largeTilesModel.price, "usd");
       // if null, exit out of function
       if (paymentIntentClientSecret == null) return;
       await Stripe.instance.initPaymentSheet(

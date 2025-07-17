@@ -4,7 +4,7 @@ import 'package:car_rental_modern/resources/app_assets.dart';
 class LargeTilesModel {
   final String title;
   final String image;
-  final String price;
+  final int price;
   final String fullRating;
   final String rating;
   final String reviews;
@@ -25,7 +25,7 @@ List largeTilesList = [
   LargeTilesModel(
     title: "Lamborghini Huracan",
     image: AppAssets.car7,
-    price: "1000",
+    price: 1000,
     fullRating: "84",
     rating: "4.8",
     reviews: "19",
@@ -38,7 +38,7 @@ List largeTilesList = [
   LargeTilesModel(
     title: "Audi R8 Performance",
     image: AppAssets.car4,
-    price: "800",
+    price: 800,
     fullRating: "92",
     rating: "5.0",
     reviews: "14",
@@ -51,7 +51,7 @@ List largeTilesList = [
   LargeTilesModel(
     title: "Mercedes AMG GT",
     image: AppAssets.car6,
-    price: "900",
+    price: 900,
     fullRating: "88",
     rating: "4.9",
     reviews: "16",

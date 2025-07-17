@@ -69,10 +69,12 @@ class _DetailScreenState extends State<DetailScreen> {
         ],
       ),
       bottomSheet: FadeInUp(
-        controller: (controller) => controller = controller,
-        duration: const Duration(milliseconds: 1000),
-        child: BottomSheetWidget(price: widget.largeTilesModel.price),
-      ),
+          controller: (controller) => controller = controller,
+          duration: const Duration(milliseconds: 1000),
+          child: BottomSheetWidget(
+            price: widget.largeTilesModel.price,
+            largeTilesModel: widget.largeTilesModel,
+          )),
     );
   }
 }

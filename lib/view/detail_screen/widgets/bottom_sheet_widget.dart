@@ -1,4 +1,5 @@
 import 'package:bounce/bounce.dart';
+import 'package:car_rental_modern/models/large_tiles_model.dart';
 import 'package:car_rental_modern/resources/app_colors.dart';
 import 'package:car_rental_modern/resources/app_typography.dart';
 import 'package:car_rental_modern/services/stripe_service.dart';
@@ -9,8 +10,10 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 
 class BottomSheetWidget extends StatelessWidget {
-  final String price;
-  const BottomSheetWidget({super.key, required this.price});
+  final LargeTilesModel largeTilesModel;
+  final int price;
+  const BottomSheetWidget(
+      {super.key, required this.price, required this.largeTilesModel});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,7 @@ class BottomSheetWidget extends StatelessWidget {
             ),
             Bounce(
               onTap: () {
-                StripeService.instance.makePayment();
+                StripeService.instance.makePayment(largeTilesModel);
               },
               child: Container(
                 height: 46.h,
