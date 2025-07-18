@@ -422,6 +422,9 @@ class AppTypography {
   static TextStyle kBold40 =
       GoogleFonts.poppins(fontSize: 40.sp, fontWeight: FontWeight.w600);
 
+  static TextStyle kBold44 =
+      GoogleFonts.poppins(fontSize: 44.sp, fontWeight: FontWeight.w600);
+
   // Extra Bold
   static TextStyle kExtraBold12 =
       GoogleFonts.poppins(fontSize: 12.sp, fontWeight: FontWeight.w700);

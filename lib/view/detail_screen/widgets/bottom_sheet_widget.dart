@@ -34,12 +34,12 @@ class BottomSheetWidget extends StatelessWidget {
                       TextSpan(
                         text: '\$$price',
                         style: AppTypography.kMedium24
-                            .copyWith(color: AppColors.kBlackColor),
+                            .copyWith(color: AppColors.kPrimaryColor),
                       ),
                       TextSpan(
                         text: ' / day',
                         style: AppTypography.kLight10
-                            .copyWith(color: AppColors.kBlackColor),
+                            .copyWith(color: AppColors.kPrimaryColor),
                       ),
                     ],
                   ),
@@ -52,9 +52,8 @@ class BottomSheetWidget extends StatelessWidget {
                 height: 46.h,
                 width: Get.width * 0.5,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50.r),
-                  color: AppColors.kPrimaryColor
-                ),
+                    borderRadius: BorderRadius.circular(50.r),
+                    color: AppColors.kPrimaryColor),
                 child: Center(
                   child: Text(
                     "Book Now",

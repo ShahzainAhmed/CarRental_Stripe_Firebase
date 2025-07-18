@@ -8,4 +8,7 @@ class AppAssets {
   static const car6 = 'assets/images/car6.jpg';
   static const car7 = 'assets/images/car7.jpg';
   static const car8 = 'assets/images/car8.jpeg';
+  static const carLogo = 'assets/images/carlogo.svg';
+  static const onboarding = 'assets/images/onboarding.png';
+  static const onboardingBlack = 'assets/images/onboarding.jpg';
 }

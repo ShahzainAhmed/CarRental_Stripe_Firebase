@@ -1,5 +1,7 @@
 import 'package:car_rental_modern/resources/app_constants.dart';
+import 'package:car_rental_modern/view/auth/login_screen.dart';
 import 'package:car_rental_modern/view/home/home_screen.dart';
+import 'package:car_rental_modern/view/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
             bottomSheetTheme:
                 const BottomSheetThemeData(backgroundColor: Colors.transparent),
           ),
-          home: const HomeScreen(),
+          home: const OnboardingScreen(),
         );
       },
     );
