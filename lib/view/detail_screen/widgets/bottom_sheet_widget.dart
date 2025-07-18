@@ -6,7 +6,6 @@ import 'package:car_rental_modern/services/stripe_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 
 class BottomSheetWidget extends StatelessWidget {
@@ -48,15 +47,13 @@ class BottomSheetWidget extends StatelessWidget {
               ],
             ),
             Bounce(
-              onTap: () {
-                StripeService.instance.makePayment(largeTilesModel);
-              },
+              onTap: () => StripeService.instance.makePayment(largeTilesModel),
               child: Container(
                 height: 46.h,
                 width: Get.width * 0.5,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50.r),
-                  color: AppColors.kBlackColor,
+                  color: AppColors.kPrimaryColor
                 ),
                 child: Center(
                   child: Text(

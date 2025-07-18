@@ -13,54 +13,78 @@ class LocationContainer extends StatelessWidget {
     return Align(
       alignment: Alignment.topCenter,
       child: Container(
-        color: AppColors.kBlackColor,
-        padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 40.h),
-        height: Get.height,
+        color: AppColors.kPrimaryColor,
+        padding:
+            EdgeInsets.only(left: 20.w, right: 20.w, top: 50.h, bottom: 20.h),
+        width: double.infinity,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
                 const Icon(
-                  size: 20,
-                  Icons.location_on,
+                  Icons.person_rounded,
                   color: AppColors.kWhiteColor,
+                  size: 20,
                 ),
-                SizedBox(width: 10.w),
+                SizedBox(width: 8.w),
                 FadeInRight(
                   duration: const Duration(milliseconds: 1200),
-                  child: Text(
-                    "Pakistan",
-                    style: GoogleFonts.poppins(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.kWhiteColor,
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Good to see you",
+                        style: GoogleFonts.poppins(
+                          fontSize: 10.sp,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.kWhiteColor.withOpacity(0.7),
+                        ),
+                      ),
+                      Text(
+                        "Shahzain Ahmed",
+                        style: GoogleFonts.poppins(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.kWhiteColor,
+                        ),
+                      ),
+                    ],
                   ),
-                )
+                ),
+                const Spacer(),
+                const Icon(
+                  Icons.location_on,
+                  color: AppColors.kWhiteColor,
+                  size: 20,
+                ),
+                SizedBox(width: 8.w),
+                FadeInRight(
+                  duration: const Duration(milliseconds: 1000),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Current Location",
+                        style: GoogleFonts.poppins(
+                          fontSize: 10.sp,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.kWhiteColor.withOpacity(0.7),
+                        ),
+                      ),
+                      Text(
+                        "California, USA",
+                        style: GoogleFonts.poppins(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.kWhiteColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
-            SizedBox(height: 10.h),
-            Row(
-              children: [
-                const Icon(
-                  size: 20,
-                  Icons.calendar_month_rounded,
-                  color: AppColors.kWhiteColor,
-                ),
-                SizedBox(width: 10.w),
-                FadeInRight(
-                  duration: const Duration(milliseconds: 1400),
-                  child: Text(
-                    "Sep 1 , 10:00 AM - Sep 3 , 10:00 AM",
-                    style: GoogleFonts.poppins(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.kWhiteColor,
-                    ),
-                  ),
-                )
-              ],
-            )
           ],
         ),
       ),

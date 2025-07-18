@@ -24,9 +24,9 @@ class TabBarWidget extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.kBlackColor : AppColors.kWhiteColor,
+          color: isSelected ? AppColors.kPrimaryColor : AppColors.kWhiteColor,
           borderRadius: BorderRadius.circular(8.r),
-          border: Border.all(color: AppColors.kBlackColor.withOpacity(0.2)),
+          border: Border.all(color: AppColors.kPrimaryColor.withOpacity(0.2)),
         ),
         child: Center(
           child: Text(
