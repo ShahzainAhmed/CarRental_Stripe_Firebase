@@ -5,28 +5,40 @@ import 'package:car_rental_modern/routes/app_routes.dart';
 import 'package:car_rental_modern/view/home/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
+  final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
-  bool isLoading = false;
   bool isObscure = true;
+  bool isConfirmObscure = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
       backgroundColor: AppColors.kPrimaryColor,
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => Get.back(),
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              color: AppColors.kWhiteColor,
+            )),
+        backgroundColor: AppColors.kPrimaryColor,
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
@@ -48,13 +60,32 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 20.h),
             Text(
-              "Login to continue booking your ride",
+              "Create an account to book your ride",
               textAlign: TextAlign.center,
               style: AppTypography.kMedium14.copyWith(
                 color: AppColors.kLightGreyColor.withAlpha(150),
               ),
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: 30.h),
+
+            // Name Field
+            TextField(
+              controller: nameController,
+              style: AppTypography.kMedium14,
+              decoration: InputDecoration(
+                fillColor: AppColors.kWhiteColor,
+                filled: true,
+                hintText: 'Enter your name',
+                hintStyle: AppTypography.kMedium12,
+                prefixIcon: const Icon(Icons.person),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+              ),
+            ),
+            SizedBox(height: 20.h),
+
+            // Email Field
             TextField(
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
@@ -70,7 +101,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20.h),
+
+            // Password Field
             TextField(
               controller: passwordController,
               obscureText: isObscure,
@@ -92,37 +125,52 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Forgot Password?",
-                  style: AppTypography.kMedium12
-                      .copyWith(color: AppColors.kWhiteColor),
+            SizedBox(height: 20.h),
+
+            // Confirm Password Field
+            TextField(
+              controller: confirmPasswordController,
+              obscureText: isConfirmObscure,
+              style: AppTypography.kMedium14,
+              decoration: InputDecoration(
+                fillColor: AppColors.kWhiteColor,
+                filled: true,
+                hintText: 'Confirm your password',
+                hintStyle: AppTypography.kMedium12,
+                prefixIcon: const Icon(Icons.lock_outline),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    isConfirmObscure ? Icons.visibility : Icons.visibility_off,
+                  ),
+                  onPressed: () =>
+                      setState(() => isConfirmObscure = !isConfirmObscure),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 30.h),
+
             const PrimaryButton(
-              title: "Login",
+              title: "Sign Up",
               appRoute: AppRoutes.homeScreen,
             ),
             SizedBox(height: 30.h),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Don't have an account?",
+                  "Already have an account? ",
                   style: AppTypography.kMedium12.copyWith(
                     color: AppColors.kWhiteColor,
                   ),
                 ),
                 TextButton(
-                  onPressed: () => Get.toNamed(AppRoutes.signupScreen),
+                  onPressed: () => Get.toNamed(AppRoutes.loginScreen),
                   child: Text(
-                    "Sign Up",
+                    "Login",
                     style: AppTypography.kMedium12,
                   ),
                 ),
